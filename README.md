@@ -26,6 +26,12 @@ This project was built to demonstrate practical cybersecurity, threat intelligen
 * Stores IOC data in CSV format
 * Displays IOC metrics on the dashboard
 
+### Ransomware Intelligence
+
+* Collects ransomware victim data from ransomware.live
+* Stores ransomware intelligence in CSV format
+* Displays ransomware metrics on the dashboard
+* Provides visibility into current ransomware activity
 
 ### Dashboard Visualization
 
@@ -35,6 +41,7 @@ This project was built to demonstrate practical cybersecurity, threat intelligen
   * Total CVEs collected
   * Total malicious IPs collected
   * Total IOCs collected
+  * Total ransomware records collected
 
 * Designed to be extended with additional threat intelligence metrics.
 
@@ -50,8 +57,10 @@ This project was built to demonstrate practical cybersecurity, threat intelligen
 * Requests
 * Dash
 * Plotly
-* AbuseIPDB API
 * NVD API
+* AbuseIPDB API
+* AlienVault OTX API
+* ransomware.live API
 * Git
 * GitHub
 
@@ -66,7 +75,8 @@ Threat-Intelligence-Dashboard/
 ├── data/
 │   ├── cves.csv
 │   ├── iocs.csv
-│   └── malicious_ips.csv
+│   ├── malicious_ips.csv
+│   └──  ransomware.csv
 │
 ├── docs/
 │
@@ -74,12 +84,15 @@ Threat-Intelligence-Dashboard/
 │   ├── dashboard_v1.png
 │   ├── dashboard_v2_abuseipdb.png
 │   ├──	dashboard_v3_iocs.png
+│   ├──	dashboard_v4_ransomware.png
 |   ├── cve_collection1.png
 │   ├── cve_collection2.png
 │   ├── malicious_ips_collection1.png
 │   ├── malicious_ips_collection2.png
 |   ├── ioc_collection1.png
-│   └── ioc_collection2.png
+|   ├── ioc_collection2.png
+|   ├── ransomware_collection1.png
+│   └── ransomware_collection2.png
 │
 ├── scripts/
 │   ├── fetch_cves.py
@@ -108,6 +121,9 @@ Threat-Intelligence-Dashboard/
 
 ![Dashboard V3](screenshots/dashboard_v3_iocs.png)
 
+### Dashboard with ransomware feed Integration
+
+![Dashboard V4](screenshots/dashboard_v4_ransomware.png)
 
 ### CVE Collection
 
@@ -123,6 +139,10 @@ Threat-Intelligence-Dashboard/
 
 ![IOC Collection](screenshots/ioc_collection1.png)
 ![IOC Collection](screenshots/ioc_collection2.png)
+### Ransomware Collection
+
+![ Ransomware Collection](screenshots/ransomware_collection1.png)
+![ Ransomware Collection](screenshots/ransomware_collection2.png)
 ## Setup Instructions
 
 ### Clone the Repository
@@ -158,6 +178,7 @@ Create a `.env` file:
 
 ```text
 ABUSEIPDB_API_KEY=YOUR_API_KEY
+OTX_API_KEY=YOUR_API_KEY
 ```
 
 ### Run CVE Collection
@@ -170,6 +191,18 @@ python scripts/fetch_cves.py
 
 ```bash
 python scripts/fetch_abuseipdb.py
+```
+
+### Run IOC Collection
+
+```bash
+python scripts/fetch_iocs.py
+```
+
+### Run Ransomware Collection 
+
+```bash
+python scripts/fetch_ransomware.py
 ```
 
 ### Launch Dashboard
@@ -186,34 +219,36 @@ python dashboard/app.py
 * [x] Basic Dash dashboard
 * [x] Environment variable management
 * [x] IOC collection (AlienVault OTX)
-* [ ] Ransomware intelligence feed integration
+* [x] Ransomware intelligence feed integration
 * [ ] Advanced visualizations
 * [ ] Automated scheduling
 * [ ] Threat intelligence enrichment
 
 ## Future Improvements
 
-* AlienVault OTX integration
-* IOC enrichment
-* Ransomware tracking
+* Interactive Plotly visualizations
 * Geolocation mapping of malicious IPs
-* Automated threat intelligence updates
+* Threat intelligence enrichment
+* Automated threat feed scheduling
 * Email alerting system
-* Advanced analytics dashboard
+* IOC type categorization
+* Threat trend analytics
+* Dashboard filtering and search
 
 ## Learning Objectives
 
 This project demonstrates:
 
 * Threat Intelligence Collection
-* Security Automation
+* Cybersecurity Automation
 * API Integration
-* Data Processing
-* Secure Secret Management
+* Security Data Processing
+* IOC Management
+* Vulnerability Intelligence
 * Dashboard Development
-* Git and GitHub Workflow
+* Git & GitHub Workflow
+* Secure Secret Management
 
 ## Disclaimer
 
 This project is intended for educational and portfolio purposes only. Threat intelligence data is collected from publicly available sources and APIs.
-
