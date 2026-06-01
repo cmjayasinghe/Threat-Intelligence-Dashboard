@@ -19,6 +19,14 @@ This project was built to demonstrate practical cybersecurity, threat intelligen
 * Retrieves high-confidence malicious IP addresses.
 * Stores threat intelligence data locally for dashboard visualization.
 
+### IOC Collection
+
+* Integrated with AlienVault OTX API
+* Retrieves threat intelligence pulses
+* Stores IOC data in CSV format
+* Displays IOC metrics on the dashboard
+
+
 ### Dashboard Visualization
 
 * Built using Dash and Plotly.
@@ -26,6 +34,8 @@ This project was built to demonstrate practical cybersecurity, threat intelligen
 
   * Total CVEs collected
   * Total malicious IPs collected
+  * Total IOCs collected
+
 * Designed to be extended with additional threat intelligence metrics.
 
 ### Secure API Key Management
@@ -55,6 +65,7 @@ Threat-Intelligence-Dashboard/
 │
 ├── data/
 │   ├── cves.csv
+│   ├── iocs.csv
 │   └── malicious_ips.csv
 │
 ├── docs/
@@ -62,8 +73,13 @@ Threat-Intelligence-Dashboard/
 ├── screenshots/
 │   ├── dashboard_v1.png
 │   ├── dashboard_v2_abuseipdb.png
+│   ├──	dashboard_v3_iocs.png
 |   ├── cve_collection1.png
-│   └── cve_collection2.png
+│   ├── cve_collection2.png
+│   ├── malicious_ips_collection1.png
+│   ├── malicious_ips_collection2.png
+|   ├── ioc_collection1.png
+│   └── ioc_collection2.png
 │
 ├── scripts/
 │   ├── fetch_cves.py
@@ -88,11 +104,25 @@ Threat-Intelligence-Dashboard/
 
 ![Dashboard V2](screenshots/dashboard_v2_abuseipdb.png)
 
+### Dashboard with IOC metrics Integration
+
+![Dashboard V3](screenshots/dashboard_v3_iocs.png)
+
+
 ### CVE Collection
 
 ![CVE Collection](screenshots/cve_collection1.png)
 ![CVE Collection](screenshots/cve_collection2.png)
 
+### Malicious IP Collection
+
+![Malicious IP Collection](screenshots/malicious_ips_collection1.png)
+![Malicious IPs Collection](screenshots/malicious_ips_collection2.png)
+
+### IOC Collection
+
+![IOC Collection](screenshots/ioc_collection1.png)
+![IOC Collection](screenshots/ioc_collection2.png)
 ## Setup Instructions
 
 ### Clone the Repository
@@ -155,7 +185,7 @@ python dashboard/app.py
 * [x] AbuseIPDB integration
 * [x] Basic Dash dashboard
 * [x] Environment variable management
-* [ ] IOC collection (AlienVault OTX)
+* [x] IOC collection (AlienVault OTX)
 * [ ] Ransomware intelligence feed integration
 * [ ] Advanced visualizations
 * [ ] Automated scheduling
@@ -186,5 +216,4 @@ This project demonstrates:
 ## Disclaimer
 
 This project is intended for educational and portfolio purposes only. Threat intelligence data is collected from publicly available sources and APIs.
-
 
