@@ -1,20 +1,21 @@
-from dash import Dash, html, dash_table
+from dash import Dash, html
 import pandas as pd
+
+app = Dash(__name__)
 
 cves = pd.read_csv("data/cves.csv")
 
-app = Dash(__name__)
+ips = pd.read_csv("data/malicious_ips.csv")
 
 app.layout = html.Div([
 
     html.H1("Threat Intelligence Dashboard"),
 
+    html.Hr(),
+
     html.H2(f"Total CVEs: {len(cves)}"),
 
-    dash_table.DataTable(
-        data=cves.head(20).to_dict("records"),
-        page_size=10
-    )
+    html.H2(f"Malicious IPs: {len(ips)}")
 
 ])
 
