@@ -4,8 +4,8 @@ import pandas as pd
 app = Dash(__name__)
 
 cves = pd.read_csv("data/cves.csv")
-
 ips = pd.read_csv("data/malicious_ips.csv")
+iocs = pd.read_csv("data/iocs.csv")
 
 app.layout = html.Div([
 
@@ -15,7 +15,9 @@ app.layout = html.Div([
 
     html.H2(f"Total CVEs: {len(cves)}"),
 
-    html.H2(f"Malicious IPs: {len(ips)}")
+    html.H2(f"Malicious IPs: {len(ips)}"),
+
+    html.H2(f"IOC Pulses: {len(iocs)}")
 
 ])
 
